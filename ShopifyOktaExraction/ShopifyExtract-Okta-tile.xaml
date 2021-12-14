@@ -1,0 +1,218 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ShopifyExtract" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Out_Shopify_data" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>879,1089</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ShopifyExtract_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="40">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Cryptography</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ShopifyOkta tile login" sap:VirtualizedContainerService.HintSize="518,1024" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message- starting login in process" sap:VirtualizedContainerService.HintSize="476,93" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Logging into Shopify- US&quot;]" />
+    <Sequence DisplayName="Shopify Okta login process" sap:VirtualizedContainerService.HintSize="476,799" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting shopify flow&quot;]" />
+      <TryCatch DisplayName="Try Catch- catch login failures" sap:VirtualizedContainerService.HintSize="434,574" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+        <TryCatch.Variables>
+          <Variable x:TypeArguments="ui:UiElement" Name="outBrowseroutput" />
+        </TryCatch.Variables>
+        <TryCatch.Try>
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome: Peloton Interactive, Inc. - Sign In" sap:VirtualizedContainerService.HintSize="434,1114" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" IsIncognito="False" OpenMode="IfNotOpen" OutUiElement="[outBrowseroutput]" ScopeGuid="7d82cda7-703e-423f-8c96-5049b883fac7" Version="V1" WindowResize="Maximize">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,897" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="Shopifyuserid" />
+                    <Variable x:TypeArguments="ss:SecureString" Name="Shopifypwd" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="charlie K creds" DisplayName="Get Credential- for the Shopify login " sap:VirtualizedContainerService.HintSize="334,80" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[Shopifypwd]" Username="[Shopifyuserid]" />
+                  <ui:MaximizeWindow DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" Window="[outBrowseroutput]" />
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'INPUT  okta-signin-user...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" SimulateType="True" Text="[Shopifyuserid]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="506d09b5-fd9b-42f4-b230-9ff457cf4951" InformativeScreenshot="a32cc5cdb8d8ed85e1b85ed9a0fee2ac" Selector="&lt;webctrl tag='INPUT' type='text' aaname='Username ' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                  </ui:TypeInto>
+                  <ui:TypeSecureText AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Secure Text 'INPUT  okta-signin-pass...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="TypeSecureText_1" SecureText="[Shopifypwd]" SimulateType="True">
+                    <ui:TypeSecureText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="559043b0-5572-4c9a-8bd1-5b0e90bad204" InformativeScreenshot="bbe6b30ff5251aeaafd810347586d3e3" Selector="&lt;webctrl tag='INPUT' type='password' name='password' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:TypeSecureText.Target>
+                  </ui:TypeSecureText>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT  okta-signin-subm...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_34" KeyModifiers="None" MouseButton="BTN_LEFT">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d827a227-d7dc-4ea0-9f57-318c4624f446" InformativeScreenshot="9530df79f7261114f4e1c36e0706dcbd" Selector="&lt;webctrl tag='INPUT' type='submit' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                  </ui:Click>
+                  <Delay Duration="00:00:15" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                  <ui:LogMessage DisplayName="Log Message- register successful login" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;logged into Shopify&quot;]" />
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-13, -13, 3386, 1806" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2HAY/l8WUAAAHLSURBVFhHvVfLcYMwEFUJKcGXZCRyoYSUkA6cEnLJ2IJLOrA7cDpwCSmBEijBJTi7+oAMC1qEyJt5gwektx9pV7JgY/f5JOTxQxTVRaiqgecNnndD+xvfXYSs90Iedm5WBsjDm1D6tzPGpXFmjSMYsapPpPgSJjlSVCVMbkdi6Wz5TqDxcH3z8Saev0pnZQLo5TbGPWecQON50z7F1uyvEZT+IQZHqMFhJPVthq/65Kw62OjpwUNKKEkszWEUtlz5QeD4DpyJuDceJk0AmxUrKxCIncCJHgTZZQTgbmaTRVmBx8THkFLvnTQfZkkIrZBoO5p+CZ0sFbEWbrSLuiE/enLWfQqxLBS6wc43v1ZrUH7DeUJo9rxBmsgPnq2TSkesuZEve/6DA7ElINvmAlCaPWEJttyESr+Tmp5mE8pYF/QdKwGquo71ApoyZDWihCywG1y8VJB4DuRvxZ0m79IJ5wHceGPAbLGMhx021rEeqK/iBTZXCKwUo8EKxHKUUVWdR4OiTLyQkOeL2QsJYos5d7RvdyO2RO3oZt7KCdREbRbQy6zLAVps4x7WiYSb8pDH87rzJNURf3vOBnTE3njRGfrvOZYXjmFHLMQfQNwBmlsvv/kAAAAASUVORK5CYII=" InformativeScreenshot="d42ad40e3467a6e57bcfc76cb0d50c1e.png" Selector="&lt;html app='chrome.exe' title='Peloton Interactive, Inc. - Sign In'/&gt;" Url="https://onepeloton.okta.com/home/shopifyplus/0oa7dtxzm1XZCHvBG2p7/aln1h1ully8f3zymT1d8?fromHome=false" />
+            </uix:NApplicationCard.TargetApp>
+          </uix:NApplicationCard>
+        </TryCatch.Try>
+        <TryCatch.Catches>
+          <Catch x:TypeArguments="ui:FindElementException" sap:VirtualizedContainerService.HintSize="400,408" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ActivityAction x:TypeArguments="ui:FindElementException">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="ui:FindElementException" Name="exception" />
+              </ActivityAction.Argument>
+              <Sequence sap:VirtualizedContainerService.HintSize="376,338" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Fatal" Message="[&quot;Could not log into Shopify app&quot;]" />
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Send exceptions email workflow" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Send exceptions email.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </ActivityAction>
+          </Catch>
+        </TryCatch.Catches>
+      </TryCatch>
+    </Sequence>
+  </Sequence>
+</Activity>

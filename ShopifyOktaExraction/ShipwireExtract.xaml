@@ -1,0 +1,357 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ShipwireExtract" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="ShipDataExtract" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>758,3445</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ShopifyExtract_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="80">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.Core.Activities.SAP</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="70">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Cryptography</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Shipwire Extract" sap:VirtualizedContainerService.HintSize="552,3380" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="ShipDataExtract" />
+      <Variable x:TypeArguments="x:Int32" Name="ordervalue" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="IfOpenedByAppBrowser" DisplayName="Use Browser-Shipwire" sap:VirtualizedContainerService.HintSize="510,3155" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" IsIncognito="False" OpenMode="Always" ScopeGuid="0098689d-8705-4025-9eab-a58c8263ccf2" Version="V1" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,2938" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="ShipwiredataString" />
+              <Variable x:TypeArguments="x:Int32" Name="RowNo" />
+              <Variable x:TypeArguments="ss:SecureString" Name="Shipwirepassword" />
+              <Variable x:TypeArguments="x:String" Name="Shipwireuserid" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,93" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;starting Shipwire extraction&quot;]" />
+            <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="charlie K creds" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="434,80" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[Shipwirepassword]" Username="[Shipwireuserid]" />
+            <Delay Duration="00:01:30" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ContinueOnError="True" DisplayName="Type Into 'INPUT'" sap:VirtualizedContainerService.HintSize="434,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[Shipwireuserid]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9a857b90-e34e-4bd9-9107-91638dcae30b" InformativeScreenshot="09e700708cde25be5e1c0eaac297abe9" Selector="&lt;webctrl title='Shipwire' type='text' name='user' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <ui:TypeSecureText AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ContinueOnError="True" DelayBefore="3000" DelayMS="8000" DisplayName="Type Secure Text 'INPUT'" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="TypeSecureText_1" SecureText="[Shipwirepassword]">
+              <ui:TypeSecureText.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4b07a7f4-27c5-4be0-91e0-d1d9d1f535a6" InformativeScreenshot="3f938f261de044277dfdccc09c109da3" Selector="&lt;webctrl type='password' name='pass' title='Shipwire' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeSecureText.Target>
+            </ui:TypeSecureText>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DelayMS="10000" DisplayName="Click 'LOGIN BUTTON'" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Click_16" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ba478d3c-1aef-4e0a-a1f8-48c90a6a14e7" InformativeScreenshot="16aa0163a5a6f4e7861224dbc99b424e" Selector="&lt;webctrl parentid='signin-user-widget' tag='BUTTON' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <Delay Duration="00:01:00" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Delay_5" />
+            <uix:NClick ClickType="Single" DisplayName="Click 'Orders'" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0098689d-8705-4025-9eab-a58c8263ccf2" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://merchant.shipwire.com/app/dashboard" DesignTimeRectangle="458, 219, 139, 78" ElementType="Text" FriendlyName="'Orders'" FullSelectorArgument="&lt;webctrl parentid='nav_orders' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='nav_orders' tag='A' type='' aaname='Orders                     ' check:text='Orders' /&gt;" Guid="0d0a4788-7e5d-4691-8fbd-02ae9618cacf" ImageBase64="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" InformativeScreenshot="5fa072417a35b7a2c6886b6e980df08f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Shipwire' /&gt;" SearchSteps="FuzzySelector, Image">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="331, 219, 127, 78" ElementType="Text" FriendlyName="'Home'" FullSelectorArgument="&lt;webctrl parentid='nav_home' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='nav_home' tag='A' type='' aaname='Home                     ' check:text='Home' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIMAAABSCAYAAAB3/2fsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2HAY/l8WUAAARuSURBVHhe7dm/TyJpHAZw281ecrv7X9zltrpYqMVSWdlgIw000kiDDTTYrA022FjtFbtbqIVSoAV3hVooxWqykWSjiYELWRODiXETkk22/N47P3iYgXcQ94aBjE/xSQjvvDMv837nmeGdiVr9XyEysBgIJn599pu8ePa7fP/+g56ol8//ME0YhfBCFYRuI3oajEJ49ctrJgMxGciByUDAZCBgMhAwGQiYDARMBgImAwGTgYDJQMBkIGAyEDAZCJgMBEwGAiYDAZOBgMlAwGQgYDIQMBkImAwETAYCJgMBk4FgdMlwVpA/J2eUgpzq2jW+FtNWn1RJvmra6f8ZXTKwGMYOk4GAyUDAZCAIZzJ8a8jJdl7SsZi8MY+hRGKymN2Qveqdvo/huiRL5v7L1v5vr+TwY07isxF7rLMSXS7I7tmNo9+dXBxtSibZOdbUbELSa2U5v21v4615eSwfsimJRuxxGsdI5uRDxXmMYIQuGe6r7yU+3T6xetGVA6lp+qIY5t7Leb0saUxQt4gsFRuqT0P2lmc17bZIRvauNccxteT8r6RMYXtVBLGEoyhm5M1yWT/OIQlXMtTVZNqFEF0pyfl1y9HeklplA4USXfss986+hnYxTCYlnjAmY1NO6459qMQ5XI1ZY5hMS25FfZ5OSH7/SpqO/TSrOxjH1Oqn3uMoNfVbzEKYTkqh0nBt06yWJDdvj3NdM84hCVEy3Kmr1J6A7IFrclwudyRuHnde8mfOYlFQDMq8SgdnG3yRd3P2Nioh3h517cPW3M9Y20xv9P6+2wPJmMWixlDR9++MMylbdU37EIxBMvwEXTHU2ycvIVuXXW0uLTlZtZ8BVo/dV52jGJaK3vfskzV7HMbtRNNuwr7Sstt1qxjs2edGdlMPj8VPY5AMP0FzEpv/5Ky2fhNkuz/KW9t2X7WYwHl5V3V83+W0XQzdxeTkWQwtdaux+i9sXzm+74XjqFuart1vY5AM/twmasWUZ1sPFcEL5rHT7ge8Plez00CT5Lmvhuwmrf7Gv44F9dDoBQ+Tg/wmH4xBMvhTDI+6irwmKpBi+Cx58/tHCLAYmAzt7wMphivZiln9l/aDX0voJzTJ4O8zwzCL4U7+zlr9H3pmCFpokqFz8gf/N9GzBhBIMagU205a/RM7gS4qPSQ0yWA9pduTrNo9T/JA6wzDLYbOOkN7JbOrfUTCkwyG67J7BdL1buAxK5BDLgYFK5CqIOLrx3LhWi1Vvt3IRaUkhWy+z5K2v0KUDJZ7deW73ilEYupv2pzjHUBEFh56NxFAMRjFebGd6bxI89R/LH4KVzLAjZwWC663lsZ/+sXsphxeDvDWMpBisN1+kb31nCy6CtZ4aZWSzHpJTvqN12ejSwYaO6NLBho7TAYCJgMBk4GAyUDAZCBgMhAwGQiYDARMBgImAwGTgYDJQMBkIGAyEDAZCJgMBEwGAiYDAZOBgMlAwGQgYDIQMBkImAwETAYCJgMBk4GAyUCAZNA10tPEYiDbD/kPWr5z9InOpwkAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <Delay Duration="00:02:00" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'menu button'" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ad879b9a-20e4-4e74-84d8-f60ee3dbee11" InformativeScreenshot="8f3103bdf3ac0e64cb11a33dfccaf8e1" Selector="&lt;html app='chrome.exe' title='Orders overview' /&gt;&lt;webctrl title='Orders overview' aaname='Orders                     ' innertext='Orders                     ' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <Delay Duration="00:00:30" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Delay_7" />
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="5000" DisplayName="Click 'Date Range&quot;" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="752e4225-b826-4bba-9bc8-8a8a28b27260" InformativeScreenshot="ded97551bc3cd943c1b6a7d14556f732" Selector="&lt;html app='chrome.exe' title='Orders overview' /&gt;&lt;webctrl tag='DIV' title='Orders overview' idx='137' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <Delay Duration="00:02:00" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Delay_8" />
+            <ui:Click AlterIfDisabled="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="5000" DisplayName="Click 'A'" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8625c15a-45a5-49a7-b923-59c98dee1bb5" InformativeScreenshot="fe2a2ead8c4ff09f5f73890efb633f81" Selector="&lt;html app='chrome.exe' title='Orders overview' /&gt;&lt;webctrl aaname='Last 7 days' tag='A' title='Orders overview' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <Delay Duration="00:02:00" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Delay_6" />
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'All Warehouses'" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="156b3077-4dfc-4b9a-b789-0d610456c4c1" InformativeScreenshot="cdda0b146996c2378b8cfab7aafae78c" Selector="&lt;html app='chrome.exe' title='Orders overview' /&gt;&lt;webctrl aaname='All warehouses' innertext='All warehouses' title='Orders overview' idx='1' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Canada'" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Click_15" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c680e4e9-9eef-4092-a3bb-61ff06e7c392" InformativeScreenshot="216bfc70c05e4d95eadd53ea85d3bc57" Selector="&lt;html app='chrome.exe' title='Orders overview' /&gt;&lt;webctrl aaname='               Mississauga, CAN' innertext='               Mississauga, CAN' title='Orders overview' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Filters'" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ab044803-dd32-42b5-a251-c2f4a2b8eda5" InformativeScreenshot="aeedcd916c0803aa2ce5993d7ad6c794" Selector="&lt;html app='chrome.exe' title='Orders overview' /&gt;&lt;webctrl aaname=' Apply filters   ' parentid='container_canvas_c*' tag='BUTTON' type='button' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <Delay Duration="00:02:00" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,93" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Start extraction of Shipwire&quot;]" />
+            <uix:NExtractData AppendResults="False" ContinueOnError="False" DataTable="[ShipDataExtract]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='Column-0'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-1' ReferenceIdx='1' Name='Column-1'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-2' ReferenceIdx='2' Name='Column-2'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-3' ReferenceIdx='3' Name='Column-3'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-4' ReferenceIdx='4' Name='Column-4'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-5' ReferenceIdx='5' Name='Column-5'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-6' ReferenceIdx='6' Name='Column-6'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-7' ReferenceIdx='7' Name='Column-7'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-8' ReferenceIdx='8' Name='Column-8'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-9' ReferenceIdx='9' Name='Column-9'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-10' ReferenceIdx='10' Name='Column-10'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-11' ReferenceIdx='11' Name='Column-11'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-12' ReferenceIdx='12' Name='Column-12'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-13' ReferenceIdx='13' Name='Column-13'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-14' ReferenceIdx='14' Name='Column-14'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-15' ReferenceIdx='15' Name='Column-15'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-16' ReferenceIdx='16' Name='Column-16'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-17' ReferenceIdx='17' Name='Column-17'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-18' ReferenceIdx='18' Name='Column-18'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-19' ReferenceIdx='19' Name='Column-19'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataNextLink' /&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NExtractData_5" LimitExtractionTo="Rows" MaximumResults="0">
+              <uix:NExtractData.NextLink>
+                <uix:TargetAnchorable BrowserURL="https://merchant.shipwire.com/app/orders-overview" DesignTimeRectangle="1245, 1685, 80, 78" ElementType="Button" FriendlyName="'BUTTON'" FullSelectorArgument="&lt;webctrl aaname='Next Page' parentid='container_canvas_c*' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Next Page' parentid='container_canvas_c3004' tag='BUTTON' type='button' /&gt;" Guid="7de27a27-8bed-4866-855f-474ec423c62c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFQAAABSCAYAAADKMvPcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2HAY/l8WUAAAGISURBVHhe7dk9SgNRFEBh9yRWNmLlLhQkhWtRUAsrBbchCaIIxr+9JFUwVZ5cyYSIiKgHvRfPgdsMU33Mm8e8WWmGJijcAvSiP3B+MF2CQtP1DtS+lqBwgsIJCiconKBwgsIJCiconKBwgsIJCiconKBwgsIJCiconKBwgsIJCiconKBwgsKlB32eTtvp2XnrDy7bbDabX81batDJZNL2Dw7b6tp629jcalfXN+lRU4PeDu9eMbupgJoaNJb70fFJKdTUoFE11PSg0Ueow+F9OtQSoFEV1DKg0fKunxW1FGiUHbUcaJQZtSRo9BHqw+PT/I6/qSxoNBqN225v7w3q9k6vjcfj+R2/X1lQn1Aw36Fg7vJg2TGjMqB+KYH5LQ/maRNYNcwoNagn9nDLu3oFzCg1aBTL3r+e/zhB4QSFExROUDhB4QSFExROUDhB4QSFExROUDhB4QSFExROUDhB4QSFExROUDhB4QSFExROUDhB4QSFExTuU1Dne9MlKDRdC1BjEhSttRdKtF5kSzNokgAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Orders overview' /&gt;" SearchSteps="FuzzySelector, Image" />
+              </uix:NExtractData.NextLink>
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="397, 911, 6372, 5000" FriendlyName="'TABLE'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table' parentid='container_canvas_c*' tag='TABLE' /&gt;" Guid="ae70fa07-18c4-47f4-9f5f-821a26ea4570" InformativeScreenshot="f2f7bbc8e64785eabac566a4e9c37053.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Orders overview' /&gt;" SearchSteps="Selector" />
+              </uix:NExtractData.Target>
+            </uix:NExtractData>
+            <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,288" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="C:\Users\testuser1\Downloads\shipwireorders-CA.xlsx">
+              <ui:ExcelApplicationScope.Body>
+                <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:ExcelWriteRange AddHeaders="False" DataTable="[ShipDataExtract]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Sheet1" StartingCell="A1" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:ExcelApplicationScope.Body>
+            </ui:ExcelApplicationScope>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-13, -13, 3386, 1806" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2HAY/l8WUAAAVXSURBVHhe7ZoJT+pKHEf9SPcDvnfjvqKgIju4+4G8Mca8a9ziiopLnuzOnd+0A9PptFDoH3gvNDmBFo09Z9pKl4nxNJ7G03jqdjo6OmKHh4eCgwNwINjf3xfs7YE9tgt2dwU7O2CHbYPtbUEBFAosD/Igz3Igl2NZkM2xTDZrkcmydCaDny/F4/Ef9qoMZ4J4s9nsmoZOQ0HMN5Rl7fd18d6i+f3NEP7i4gLBhhtBBqjX6y1qKjUn1VpNgy+r8ldJrcoq/BVUq/x9pT1fwTwHERDg/f2dXV5eYksZXgRs9sMK8Pn5KSJgS+C7yXAiYH9vNr+5eMMcQQtQCyEAdgc1QKlUYufn5/z4MIQIwwzw8fHRCvDy8sL++f2bHxyzpeggI+BIP8xjwNvbG3t9fRUBisUiOzs7Y+l0phSNDijCMANg5KX88/Mze3p6Yg8PD+z09JQlUykeIUofAf/nZQCHuEHeHQDzSgC+zJK05lX5snhvIXcBiKvyj4+P7P7+nt3d3bGTkxOWSA4gAr7kIEA38p33fznS1rxXALkFYJMHUh6jD/nb21t2c3PDjn/9YluJJG0EfMNzBXCJWzjlQX8BIC3F5chL+evra3Z1dcWOj495hETJXt3wJ3y1FQE0WZ2O8sBn/zcFiEQiXRFb32D26oY/dRPALQ96G33xnvP0VGT3D3yfd4GtweKOUyw+s+j6Ol0AnNj4BXCLg95HXwbAq5kKK5cr7MsG30+iMdIAO4YANYGnvB6AL2/L81cu4hVAfuYWB1zeGCBGFwCntFYAS8Qfs3zQ0fcNwKX1AGtRygD8PB6nsW5ZHYM8cMj3M/rAKT8iATzEgSJvBbAl7XlIBRp9jwCr0ShdAFzJcQewpb3EQQd5C8zb4DOHsI57828FWKMMUCjYAbqQBiKQU9QkD6l+R78dYI0uAK7h4ZKVUVbHTx7YyyAVxujLAJFVygD5DgFauwVk2uIgiLx3AO/RH1CAvDNASxhUPcSBLaYsh5AqL+ZtnNIq3qMvA6ysrtIFwKVr50EQK+8UljjEgfIZZHqS9xl9IAJEKAPkcmILUGV0XOJA+RwyweWB/+gD8gC4aaEHaO0OXMZPHECkZ/kOow8QYHklQhggiwANs6xEkzaJU8gD8gC4VYUAfrIqUkKXb/2+/bk3bfnuAtTZ0soKdQD/Y4AqoIuLZQrqz7oJJv9VLlsBlikDZNwB9BXXpU3i4ctzvsriEt0iZQDcpRW7gEHSBGSCiYPe5P+VAZaWCQOkOweQIsHFQQ/yfNMfWIBUOu04CMoVV0V1nIJ+9CLPseVlgIWlpcEF8MIs6Ef/8q0Ai5QBUu4AZqFuscVDkJcB5ikDJFMpcavKLBOEPsSBQb4VYGGRMECy3wBu8bDkAXmARDLZY4AQxIFBWgUB5hYWRiWAIt2vODAI64gA84QBthKmAIqkDl/xvsWBQdYEAszSBkjYAWxBHb6yoUkL2l9yukEEmJunCxDf4gH4KadJVMUsExAuFEQeIMAMbYAtEcC4wqERXFzy3w/AJXqVBwgwPTtHF2AzThSAr3w/4pIBBIiHG4CvdBjiEhFgZpYuwMZmGAEs6TDFJQgwNZoB6KRVBhBgs8sAbWFqaRUEmJyeoQuwvoEAdYecjmnFBsUAAmyIP2L646OACDA1TRcAz+CNeoCf4wCEAfAQ4qgH+HtyijBAzAowyhAHiInH0ACexsIDSXgmB09lADycgNvTADcpAe7V4XYV7tjgmj3ApWtcvcUFTFzCAriSg4sZOJ/HKS1OagC+2gr4/3f8jwc40gv45o5NHkAc/PVzki7AeBpP4+l/Nk1M/AFgFh9DremQuwAAAABJRU5ErkJggg==" InformativeScreenshot="10386d71971dcb34e5a6463cf3893511.png" Selector="&lt;html app='chrome.exe' url='https://merchant.shipwire.com/index/login?' /&gt;" Url="https://merchant.shipwire.com/index/login?" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,93" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Shipwire extract completed&quot;]" />
+  </Sequence>
+</Activity>
